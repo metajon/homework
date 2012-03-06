@@ -19,6 +19,14 @@ motion_sig = 2.
 mu = 0
 sig = 10000
 
+
+for n in range(len(measurements)):
+    [mu, sig] = update(mu, sig, measurements[n], measurement_sig)
+    print 'Update: ', [mu,sig]
+    [mu, sig] = predict(mu, sig, motion[n], motion_sig)
+    print 'Predict: ', [mu,sig]
+
+
 #Please print out ONLY the final values of the mean
 #and the variance in a list [mu, sig]. 
 
