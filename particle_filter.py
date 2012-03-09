@@ -128,4 +128,14 @@ N = 1000
 list_of_particles =[]
 for i in range(N):
     list_of_particles.append(robot())
+    
+for i in range(len(p)):
+    p[i] = p[i].move(.1,5)
+
+# or,
+# p2 =[]
+# for i in range(N):
+# 	p2.append(p[i].move(0.1,5.0))
+# p = p2
+#
 '''
