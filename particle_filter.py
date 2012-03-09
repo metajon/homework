@@ -138,4 +138,11 @@ for i in range(len(p)):
 # 	p2.append(p[i].move(0.1,5.0))
 # p = p2
 #
+
+for i in range(N):
+    Z = p[i].sense()
+    weight = p[i].measurement_prob(Z)
+    w.append(weight)
+    
+    # or, w.append(p[i].measurement_prob(Z)
 '''
