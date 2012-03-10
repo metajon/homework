@@ -155,4 +155,34 @@ for i in range(N):
 for i in range(N):
 	b = b+(U[i]*2*max(w))
 	# next...  You have to see the coures notes.
+
+# this way is wrong, but close:
+p3 = []
+U =[]
+b = 0
+wMax = max(w)
+for i in range(N):
+    U.append(i)
+
+for i in range(len(U)):
+    b = b+(U[i]*2*wMax)
+    if w[i] < b:
+        b = b - w[i]
+    else:
+        b = w[i]
+    p3.append(b)
+    
+# here is code that works
+
+p3 = []
+index = int(random.random() * N)
+beta = 0.0
+mw = max(w)
+for i in range(N):
+    beta += random.random() * 2.0 * mw
+    while beta > w[index]:
+        beta -= w[index]
+        index = (index + 1) % N
+    p3.append(p[index])
+p = p3
 '''
