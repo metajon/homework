@@ -145,4 +145,14 @@ for i in range(N):
     w.append(weight)
     
     # or, w.append(p[i].measurement_prob(Z)
+    
+# resampling wheel
+b = 0
+U =[]
+for i in range(N):
+	U.append(i)
+
+for i in range(N):
+	b = b+(U[i]*2*max(w))
+	# next...  You have to see the coures notes.
 '''
