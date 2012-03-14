@@ -35,13 +35,15 @@ delta_name = ['^', '<', 'v', '>']
 cost = 1
 
 def search():
-    open = [[0,init]]
-    smin = []
-    new_open = []
+    g = 0
+    open = []
+    
+    # step:
+    # append any step, regardless of admissibility, to open
+    g = g+cost
+    open.append([g,init[0]+1,init[1]])
+    open.append([g,init[0],init[1]+1])
+    open.append([g,init[0]-1,init[1]])
+    open.append([g,init[0],init[1]-1])
 
-    for i in range(len(open)):
-        smin.append(open[i][0])
-    s_min = min(smin)
-    for i in range(len(open)):
-        if (open[i][0] == s_min):
-            new_open.append([s_min,open[i][1]])
+            
