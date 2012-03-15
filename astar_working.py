@@ -35,15 +35,23 @@ delta_name = ['^', '<', 'v', '>']
 cost = 1
 
 def search():
-    g = 0
-    open = []
+    g = 0  
+    open = [[g,init[0],init[1]]]
+    g = g + cost
+    x = init[0]
+    y = init[1]
     
-    # step:
-    # append any step, regardless of admissibility, to open
-    g = g+cost
-    open.append([g,init[0]+1,init[1]])
-    open.append([g,init[0],init[1]+1])
-    open.append([g,init[0]-1,init[1]])
-    open.append([g,init[0],init[1]-1])
-
+    x = x + 1
+    y = y
+    
+    if grid[x][y] == 0:
+        open.append([g,x,y])
+    
+    x = x
+    y = y + 1
+    
+    if grid[x][y] == 0:
+        open.append([g,x,y])
+        
+    return open
             
