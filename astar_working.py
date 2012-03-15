@@ -35,23 +35,19 @@ delta_name = ['^', '<', 'v', '>']
 cost = 1
 
 def search():
-    g = 0  
-    open = [[g,init[0],init[1]]]
-    g = g + cost
-    x = init[0]
-    y = init[1]
-    
-    x = x + 1
-    y = y
-    
-    if grid[x][y] == 0:
-        open.append([g,x,y])
-    
-    x = x
-    y = y + 1
-    
-    if grid[x][y] == 0:
-        open.append([g,x,y])
-        
+	g = 0
+
+	open = [[g,init[0],init[1]]]
+
+	g = g + cost
+
+	for d in range(len(delta)):
+		x = delta[d][0]
+		y = delta[d][1]
+		if grid[x][y] == 0:
+			if init[0]+x >= 0:
+				x = init[0]+x
+				if init[1]+y >= 0:
+					y = init[1]+y
+					open.append([g,x,y])
     return open
-            
