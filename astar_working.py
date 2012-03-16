@@ -50,4 +50,7 @@ def search():
 				if init[1]+y >= 0:
 					y = init[1]+y
 					open.append([g,x,y])
-    return open
+	# for i in range(len(open)):
+		# if open[i][0] == 0:
+			# open.pop([i])
+	return open
