@@ -168,12 +168,33 @@ def run(params, printflag = False):
 
 def twiddle(tol = 0.2): #Make this tolerance bigger if you are timing out!
 ############## ADD CODE BELOW ####################
-            
 
-
-    # -------------
-    # Add code here
-    # -------------
+    n_params = 3
+    dparams = [1.0 for row in range(n_params)]
+    params = [0.0 for row in range(n_params)]
+    
+    best_err = run(params)
+    n = 0
+    while sum(dparams) > tol:
+        for i in range(len(params)):
+            params[i] += dparams[i]
+            err = run(params)
+            if err < best_err:
+                best_err = err
+                dparams[i] *= 1.1
+            else:
+                params[i] -= 2.0 * dparams[i]
+                err = run(params)
+                if err < best_err:
+                    best_err = err
+                    dparams[i] *= 1.1
+            else:
+                params[i] += dparams[i]
+                dparams[i] *= 0.9
+        n += 1
+        print 'Twiddle #', n, params, ' ->', best_err
+    print ''
+    return params
     
     return run(params)
 
