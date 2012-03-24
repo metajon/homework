@@ -142,9 +142,12 @@ def run(param):
     myrobot.set(0.0, 1.0, 0.0)
     speed = 1.0 # motion distance is equal to speed (we assume time = 1)
     N = 100
-    #
-    # Add Code Here
-    # 
+    
+    for i in range(N):
+        cte = myrobot.y
+        steering = - param * cte
+        myrobot = myrobot.move(steering,speed)
+        print myrobot, steering
 
 run(0.1) # call function with parameter tau of 0.1 and print results
 
