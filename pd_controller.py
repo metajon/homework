@@ -140,9 +140,15 @@ def run(param1, param2):
     myrobot.set(0.0, 1.0, 0.0)
     speed = 1.0 # motion distance is equal to speed (we assume time = 1)
     N = 100
-    #
-    # Enter code here
-    #
+    
+    cte = myrobot.y
+    
+    for i in range(N):
+        d_cte = myrobot.y - cte
+        cte = myrobot.y
+        steering = - param1 * cte - param2 * d_cte
+        myrobot = myrobot.move(steering,speed)
+        print myrobot, steering
 
 # Call your function with parameters of 0.2 and 3.0 and print results
 run(0.2, 3.0)
