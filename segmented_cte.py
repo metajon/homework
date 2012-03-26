@@ -489,7 +489,23 @@ def run(grid, goal, spath, params, printflag = False, speed = 0.1, timeout = 100
         # start with the present robot estimate
         estimate = filter.get_position()
 
-        ### ENTER CODE HERE
+        # estimate is what the particle filter tells us about the location.
+        
+        # CTE must be relative to index
+        index_length = len(spath)
+        
+        Rx = estimate.x - spath[i][0]
+        Ry = estimate.y - spath[i][1]
+        
+        Dx = spath[i+1][0] - spath[i][0]
+        Dy = spath[i+1][1] - spath[i][1]
+        
+        U = (Rx*Dx + Ry*Dy) / (Dx*Dx + Dy*Dy)
+        
+        if U > 1:
+        	index += 1
+        	
+        cte = (Ry*Dx + Rx*Dy) / (Dx*Dx + Dy*Dy)
         
 
         # ----------------------------------------
