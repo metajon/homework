@@ -43,9 +43,16 @@ def encrypt(plaintext,key):
 	encryptedMessage = "".join(cypherText(cypherIndex))
 	print encryptedMessage
 	
+# Sketch for the handling of keys smaller than the message:
+
+# endlist=[]
+# for i in range(len(longlist)):
+# 	n = i % len(shortlist)
+# 	endlist.append(longlist[i]+shortlist[n])
 
 
-# testing code follows:
+
+# Early testing code follows:
 
 #key=["O","L","E","Z","J","W","A","I"]
 
