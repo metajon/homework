@@ -27,7 +27,7 @@ def indexValuesOfPlaintext(pt_list):
 def cypherNumbers(index_plaintext,index_key):
 	cypherIndex = []
 	for i in range(len(index_plaintext)):
-        n = i % len(index_key)
+        	n = i % len(index_key)
 		cypherIndex.append((index_plaintext[i]+index_key[n]) % len(alphabet))
 	return cypherIndex
 
@@ -44,14 +44,17 @@ def encrypt(plaintext,key):
 	encryptedMessage = "".join(cypherText(cypherIndex))
 	return encryptedMessage
 	
+def decrypt(plaintext,key):
+	index_plaintext = indexValuesOfPlaintext(plaintext)
+	index_key = indexValuesOfPlaintext(key)
+	return decryptedMessage
+	
 # Sketch for the handling of keys smaller than the message:
 
 # endlist=[]
 # for i in range(len(longlist)):
 # 	n = i % len(shortlist)
 # 	endlist.append(longlist[i]+shortlist[n])
-
-
 
 # Early testing code follows:
 
