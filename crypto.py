@@ -68,9 +68,19 @@ def main():
             help="write report to FILE", metavar="FILE")
     parser.add_option("-q", "--quiet",
             action="store_false", dest="verbose", default=True,
+    parser.add_option("-e", "--encrypt", 
+            action='store_true', help="Encrypt a document.")
+    parser.add_option("-g", "--generatekey", 
+            dest='key', help="Generate a key of N length.")
     help="don't print status messages to stdout")
 
     (options, args) = parser.parse_args()
+    
+    if options.encrypt:
+        encrypt(plaintext,key)
+    
+    if options.generatekey:
+        generateKey(key)
 
 if __name__ == "__main__":
     main()
