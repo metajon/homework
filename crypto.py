@@ -43,12 +43,23 @@ def encrypt(plaintext,key):
 	cypherIndex = cypherNumbers(index_plaintext,index_key)
 	encryptedMessage = "".join(cypherText(cypherIndex))
 	return encryptedMessage
+
+# DECRPYTION
 	
 def decrypt(plaintext,key):
 	index_plaintext = indexValuesOfPlaintext(plaintext)
 	index_key = indexValuesOfPlaintext(key)
+	decypherIndex = decypherNumbers(index_plaintext,index_key)
+	decryptedMessage = "".join(cypherText(decypherIndex))
 	return decryptedMessage
 	
+def decypherNumbers(index_plaintext,index_key):
+	decypherIndex = []
+	for i in range(len(index_plaintext)):
+		n = i % len(index_key)
+		decypherIndex.append((index_plaintext[i]-index_key[n]) % len(alphabet))
+	return decypherIndex
+
 # Sketch for the handling of keys smaller than the message:
 
 # endlist=[]
