@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import random
 import string
 
@@ -60,26 +61,16 @@ def decypherNumbers(index_plaintext,index_key):
 		decypherIndex.append((index_plaintext[i]-index_key[n]) % len(alphabet))
 	return decypherIndex
 
-# Sketch for the handling of keys smaller than the message:
+def main():
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option("-f", "--file", dest="filename",
+            help="write report to FILE", metavar="FILE")
+    parser.add_option("-q", "--quiet",
+            action="store_false", dest="verbose", default=True,
+    help="don't print status messages to stdout")
 
-# endlist=[]
-# for i in range(len(longlist)):
-# 	n = i % len(shortlist)
-# 	endlist.append(longlist[i]+shortlist[n])
+    (options, args) = parser.parse_args()
 
-# Early testing code follows:
-
-#key=["O","L","E","Z","J","W","A","I"]
-
-#plaintext="THEBROWNFOX"
-
-# pt_list = list(plaintext)
-# for i in range(len(cyphertext)):
-# 	print alphabet[cyphertext[i]]
-
-# for i in range(len(pt_list)):
-# 	return_index(pt_list[i])
-
-# for i in range(len(key)):
-# 	return_index(key[i])
-
+if __name__ == "__main__":
+    main()
