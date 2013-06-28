@@ -9,5 +9,5 @@ def calculate_monthly_payments(median_price,interest_rate=.05,down_payment=.2,te
 	P = L*r*(1+r)**n / (1+r)**n -1
 	return P
 
-def calculate_typical_annual_income(monthly_payments):
-	return (monthly_payments * 12) * 4
+def calculate_typical_annual_income(monthly_payments,multiplier=4):
+	return (monthly_payments * 12) * multiplier
