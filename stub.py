@@ -1,4 +1,4 @@
-"""Script to gather IMDB keywords from 2013's top grossing movies."""
+"""Stub."""
 import sys
 
 def main():
