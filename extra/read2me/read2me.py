@@ -5,7 +5,7 @@
 #
 # This is a work in progress.  Not intended for production use.
 
-# reader.py curates news.
+# read2me.py reads the news.
 
 from urllib2 import urlopen
 from xml.dom import minidom
@@ -43,6 +43,10 @@ full_articles = {}
 # Loop through the article titles, and fetch the entry html.
 for i in range(len(xmldoc.getElementsByTagName('title'))):
     full_articles.update({xmldoc.getElementsByTagName('title')[i].firstChild.data: (BeautifulSoup(urlopen(xmldoc.getElementsByTagName('link')[i].firstChild.data)).find("div", {"class": "entry"}))})
+
+# Loop through the article titles, and fetch the content html.
+for i in range(len(xmldoc.getElementsByTagName('title'))):
+    full_articles.update({xmldoc.getElementsByTagName('title')[i].firstChild.data: (BeautifulSoup(urlopen(xmldoc.getElementsByTagName('link')[i].firstChild.data)).find("div", {"id": "content"}))})
 
 def print_titles():
 	for i in range(len(full_articles.keys())):
