@@ -34,6 +34,9 @@ nosetests.xml
 .project
 .pydevproject
 
+# PyCharm
+.idea
+
 # DS Store files (Apple only)
 .DS_Store
 
