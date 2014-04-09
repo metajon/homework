@@ -1,5 +1,6 @@
 import feedparser
 from bs4 import BeautifulSoup
+from urllib2 import urlopen
 urls = {'The Robot Report':'http://www.therobotreport.com/feed'}
 d = feedparser.parse(urls['The Robot Report'])
 #
@@ -16,8 +17,10 @@ def show_titles(d):
     for i in range(len(d)):
         print('[' + str(i) + '] ' + d['entries'][i]['title'])
 
-def request_content(article_list):
+def request_content(article_list,d):
     if type(article_list) is not list:
         print('Function requires a list.')
     else:
-        pass
+        for i in range(len(article_list)):
+        	soup = BeautifulSoup(urlopen(d['entries'][i]['link']))
+        	return soup.find_all("p")
